@@ -7,18 +7,8 @@ const statements = document.getElementsByClassName('freebirdFormviewerComponents
 const questionsPerSection = divs.length / sections.length;
 const stripe = document.querySelector(".freebirdSolidBackground");
 const bg_color = getComputedStyle(stripe).backgroundColor;
-const ad = document.createElement('h3');
-const verify = document.createElement('div');
+const submit = document.querySelector('.freebirdFormviewerViewNavigationButtons');
 
-ad.innerHTML = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
-footer.appendChild(ad);
-
-verify.textContent = 'Verificar';
-verify.style.backgroundColor = bg_color;
-verify.classList.add('button');
-verify.style.alignSelf = 'flex-start'
-verify.style.margin = '0'
-bottomDiv.appendChild(verify);
 
 const interval = setInterval(() => {
     if (texts) {
@@ -30,12 +20,28 @@ const interval = setInterval(() => {
 /* Function to create the "Riscar" buttons, set their onclick function to risk/unrisk the text and enumerate the questions */
 
 function setup() {
+    const ad = document.createElement('h3');
+    const verify = document.createElement('div');
+
+    ad.innerHTML = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
+    footer.appendChild(ad);
+
+    verify.textContent = 'Verificar';
+    verify.style.backgroundColor = bg_color;
+    verify.classList.add('button');
+    verify.style.alignSelf = 'flex-start'
+    verify.style.margin = '0'
+    // bottomDiv.appendChild(verify);
+    bottomDiv.insertBefore(verify, submit);
+
     for (let i = 0; i < divs.length; i++) {
         if (i % questionsPerSection == 0) {
             let index = Math.floor(i / questionsPerSection);
             let n = document.createElement('div');
             n.textContent = index + 1;
             n.classList.add('numeration');
+            n.style.backgroundColor = bg_color;
+            n.style.border = `1px solid ${bg_color}`;
             sections[index].insertBefore(n, statements[index]);
         }
         let button = document.createElement('div');
