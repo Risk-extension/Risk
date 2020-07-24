@@ -24,8 +24,6 @@
 }
 
 .button:hover {
-    /* filter: brightness(105%);  */
-    /* opacity: .92; */
     opacity: .95;
 }
 
@@ -34,6 +32,7 @@
   line-height: 1em;
   position: relative;
 }
+
 .strikeout::after {
   border-bottom: 0.125em solid red;
   content: "";
@@ -42,5 +41,19 @@
   position: absolute;
   right: 0;
   top: 50%;
-} 
+}
+
+.numeration {
+  width: 35px;
+  height: 35px;
+  font-size: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  color: white;
+  background-color: #673ab7;
+  border: 1px solid #673ab7;
+  margin-bottom: 10px;
+}
 

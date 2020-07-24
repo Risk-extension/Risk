@@ -16,6 +16,8 @@ footer.appendChild(ad);
 verify.textContent = 'Verificar';
 verify.style.backgroundColor = bg_color;
 verify.classList.add('button');
+verify.style.alignSelf = 'flex-start'
+verify.style.margin = '0'
 bottomDiv.appendChild(verify);
 
 const interval = setInterval(() => {
@@ -33,6 +35,7 @@ function setup() {
             let index = Math.floor(i / questionsPerSection);
             let n = document.createElement('div');
             n.textContent = index + 1;
+            n.classList.add('numeration');
             sections[index].insertBefore(n, statements[index]);
         }
         let button = document.createElement('div');
