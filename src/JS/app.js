@@ -22,6 +22,7 @@ const interval = setInterval(() => {
 function setup() {
     const ad = document.createElement('h3');
     const verify = document.createElement('div');
+    verify.classList.add('verify');
 
     document.getElementsByClassName("freebirdThemedFilledButtonM2")[0].style.backgroundColor = bg_color;
     submit.style.marginRight = '445px'
@@ -33,7 +34,6 @@ function setup() {
     verify.style.backgroundColor = bg_color;
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
-    verify.style.margin = '0';
     // bottomDiv.appendChild(verify);
     bottomDiv.insertBefore(verify, submit);
 
