@@ -102,6 +102,28 @@ function setup() {
         }
         divs[i].appendChild(button);
     }
+    /* RESPONSIVITY JS EH AKI OH */
+    window.onresize = () => {
+        if (window.innerWidth <= 503) {
+            submit.style.marginRight = `${260 * window.innerWidth / 503}px`;
+        } else if (window.innerWidth <= 519) {
+            submit.style.marginRight = `${280 * window.innerWidth / 519}px`;
+        } else if (window.innerWidth <= 545) {
+            submit.style.marginRight = `${300 * window.innerWidth / 545}px`;
+        } else if (window.innerWidth <= 564) {
+            submit.style.marginRight = `${320 * window.innerWidth / 564}px`;
+        } else if (window.innerWidth <= 588) {
+            submit.style.marginRight = `${340 * window.innerWidth / 588}px`;
+        } else if (window.innerWidth <= 617) {
+            submit.style.marginRight = `${365 * window.innerWidth / 617}px`;
+        } else if (window.innerWidth <= 660) {
+            submit.style.marginRight = `${400 * window.innerWidth / 660}px`;
+        } else if (window.innerWidth <= 696) {
+            submit.style.marginRight = `${435 * window.innerWidth / 696}px`;
+        } else {
+            submit.style.marginRight = '445px'
+        }
+    }
 }
 
 

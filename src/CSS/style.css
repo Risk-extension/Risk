@@ -1,31 +1,31 @@
 .button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5px;
-    /* background-color: #891216; */
-    color: white;
-    width: 44px;
-    height: 36px;
-    padding: 0px 24px;
-    font-size: 14px;
-    /* font-family: 'Roboto', sans-serif; */
-    font-family: Google Sans;
-    font-weight: 500;
-    /* letter-spacing: 1px; */
-    letter-spacing: .25px;
-    cursor: pointer;
-    text-align: center;
-    outline: none;
-    justify-self: center;
-    align-self: center;
-    margin-left: 8px;
-    transition: text 1s;
-    user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  /* background-color: #891216; */
+  color: white;
+  width: 44px;
+  height: 36px;
+  padding: 0px 24px;
+  font-size: 14px;
+  /* font-family: 'Roboto', sans-serif; */
+  font-family: Google Sans;
+  font-weight: 500;
+  /* letter-spacing: 1px; */
+  letter-spacing: .25px;
+  cursor: pointer;
+  text-align: center;
+  outline: none;
+  justify-self: center;
+  align-self: center;
+  margin-left: 8px;
+  transition: text 1s;
+  user-select: none;
 }
 
 .button:hover {
-    opacity: .95;
+  opacity: .95;
 }
 
 .numeration {
