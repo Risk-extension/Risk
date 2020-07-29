@@ -20,6 +20,8 @@ const interval = setInterval(() => {
 /* Function to create the "Riscar" buttons, set their onclick function to risk/unrisk the text and enumerate the questions */
 
 function setup() {
+    const language = submit.innerText.toLowerCase() == 'enviar' ? 'pt' : 'en';
+
     const ad = document.createElement('h3');
     const verify = document.createElement('div');
     verify.classList.add('verify');
@@ -27,10 +29,12 @@ function setup() {
     document.getElementsByClassName("freebirdThemedFilledButtonM2")[0].style.backgroundColor = bg_color;
     submit.style.marginRight = '445px'
 
-    ad.innerHTML = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
+    let ptAd = 'Extensão Risk criada por Pedro Queiroz & Lucca Nunes';
+    let enAd = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
+    ad.innerHTML = language == 'pt' ? ptAd : enAd;
     footer.appendChild(ad);
 
-    verify.textContent = 'Verify';
+    verify.textContent = language == 'pt' ? 'Verificar' : 'Verify';
     verify.style.backgroundColor = bg_color;
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
@@ -51,14 +55,20 @@ function setup() {
         }
         let wrong = false;
         for (let i = 0; i < radios.length; i++) {
-            if (radios[i].classList.contains('isChecked') && buttons[i].textContent == 'Undo') {
+            if (radios[i].classList.contains('isChecked') && (buttons[i].textContent == 'Undo' || buttons[i].textContent == 'Desfazer')) {
                 wrong = true;
-                alert(`Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`)
+                let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`;
+                let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`;
+                let error = language == 'pt' ? ptErr : enErr;
+                alert(error);
             }
         }
         if (!wrong) {
             if (count === sections.length) {
-                alert('All good!');
+                let ptErr = `Tudo certo!`;
+                let enErr = `All good!`;
+                let error = language == 'pt' ? ptErr : enErr;
+                alert(error);
             } else {
                 string = '';
                 for (let i = 0; i < sections.length; i++) {
@@ -67,7 +77,10 @@ function setup() {
                     }
                 }
                 string = string.substring(0, string.length - 2);
-                alert(`The following questions haven't been answered: ${string}`);
+                let ptErr = `As seguintes questões não foram respondidas: ${string}`
+                let enErr = `The following questions haven't been answered: ${string}`
+                let error = language == 'pt' ? ptErr : enErr;
+                alert(error);
             }
         }
     }
@@ -83,7 +96,7 @@ function setup() {
             sections[index].insertBefore(n, statements[index]);
         }
         let button = document.createElement('div');
-        button.textContent = 'Risk';
+        button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
         button.style.backgroundColor = bg_color;
         button.classList.add('button')
         let risked = false; // i know it's not a word
@@ -92,12 +105,12 @@ function setup() {
                 risked = true;
                 texts[i].style.textDecoration = 'line-through';
                 texts[i].style.opacity = '0.5';
-                button.textContent = 'Undo'
+                button.textContent = language == 'pt' ? 'Desfazer' : 'Undo';
             } else {
                 risked = false;
                 texts[i].style.textDecoration = 'initial';
                 texts[i].style.opacity = '1';
-                button.textContent = 'Risk';
+                button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
             }
         }
         divs[i].appendChild(button);
