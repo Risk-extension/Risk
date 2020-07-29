@@ -3,6 +3,7 @@ const texts = document.getElementsByClassName("docssharedWizToggleLabeledLabelTe
 const sections = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseRoot');
 const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
 const footer = document.querySelector('.freebirdFormviewerViewFooterDisclaimer');
+const outterFooter = footer.parentNode;
 const statements = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseHeader');
 const questionsPerSection = divs.length / sections.length;
 const stripe = document.querySelector(".freebirdSolidBackground");
@@ -28,7 +29,8 @@ function setup() {
     submit.style.marginRight = '445px'
 
     ad.innerHTML = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
-    footer.appendChild(ad);
+    // footer.appendChild(ad);
+    outterFooter.insertBefore(ad, footer);
 
     verify.textContent = 'Verificar';
     verify.style.backgroundColor = bg_color;
@@ -102,7 +104,7 @@ function setup() {
         }
         divs[i].appendChild(button);
     }
-    /* RESPONSIVITY JS EH AKI OH */
+    // * RESPONSIVITY JS EH AKI OH  
     window.onresize = () => {
         if (window.innerWidth <= 503) {
             submit.style.marginRight = `${260 * window.innerWidth / 503}px`;
