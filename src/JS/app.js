@@ -3,7 +3,6 @@ const texts = document.getElementsByClassName("docssharedWizToggleLabeledLabelTe
 const sections = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseRoot');
 const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
 const footer = document.querySelector('.freebirdFormviewerViewFooterDisclaimer');
-const outterFooter = footer.parentNode;
 const statements = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseHeader');
 const questionsPerSection = divs.length / sections.length;
 const stripe = document.querySelector(".freebirdSolidBackground");
@@ -29,10 +28,9 @@ function setup() {
     submit.style.marginRight = '445px'
 
     ad.innerHTML = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
-    // footer.appendChild(ad);
-    outterFooter.insertBefore(ad, footer);
+    footer.appendChild(ad);
 
-    verify.textContent = 'Verificar';
+    verify.textContent = 'Verify';
     verify.style.backgroundColor = bg_color;
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
@@ -53,14 +51,14 @@ function setup() {
         }
         let wrong = false;
         for (let i = 0; i < radios.length; i++) {
-            if (radios[i].classList.contains('isChecked') && buttons[i].textContent == 'Desfazer') {
+            if (radios[i].classList.contains('isChecked') && buttons[i].textContent == 'Undo') {
                 wrong = true;
-                alert(`Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`)
+                alert(`Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`)
             }
         }
         if (!wrong) {
             if (count === sections.length) {
-                alert('Tudo certo!');
+                alert('All good!');
             } else {
                 string = '';
                 for (let i = 0; i < sections.length; i++) {
@@ -69,7 +67,7 @@ function setup() {
                     }
                 }
                 string = string.substring(0, string.length - 2);
-                alert(`As seguintes questões não foram respondidas: ${string}`);
+                alert(`The following questions haven't been answered: ${string}`);
             }
         }
     }
@@ -85,7 +83,7 @@ function setup() {
             sections[index].insertBefore(n, statements[index]);
         }
         let button = document.createElement('div');
-        button.textContent = 'Riscar';
+        button.textContent = 'Risk';
         button.style.backgroundColor = bg_color;
         button.classList.add('button')
         let risked = false; // i know it's not a word
@@ -94,12 +92,12 @@ function setup() {
                 risked = true;
                 texts[i].style.textDecoration = 'line-through';
                 texts[i].style.opacity = '0.5';
-                button.textContent = 'Desfazer'
+                button.textContent = 'Undo'
             } else {
                 risked = false;
                 texts[i].style.textDecoration = 'initial';
                 texts[i].style.opacity = '1';
-                button.textContent = 'Riscar';
+                button.textContent = 'Risk';
             }
         }
         divs[i].appendChild(button);
