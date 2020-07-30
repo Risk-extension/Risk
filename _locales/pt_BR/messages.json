@@ -4,7 +4,7 @@
     "description": "Uma extensão para Google Forms criada por dois estudantes com o objetivo de tornar o preenchimento desses formulários mais simples"
   },
   "appDesc": {
-    "message": "INSERT SOME DUMMY TEXT HERE",
-    "description": "Essa extensão te permite traçar uma linha nas alternativas dos Formulários Google. Ela pode ser muito útil durante testes de escola ou qualquer coisa que necessite de um ambiente organizado. Como funcionalidades adicionais, ela também numera as questões e te permite ver quais questões você não respondeu."
+    "message": "Essa extensão é supimpa",
+    "description": "Essa extensão te permite riscar as alternativas de questões do Formulários Google. Ela pode ser muito útil durante provas escolares ou em qualquer atividade que necessite de um ambiente organizado. Além disso, ela numera as questões e te permite ver quais você não respondeu."
   }
 }
