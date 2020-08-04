@@ -10,9 +10,7 @@
         }
     ],
     "description": "A Google Forms extension created by two high schoolers that are trying to make filling these forms easier.",
-    "icons": {
-        "128": "src/icons/white-red.png"
-    },
+    "icons": { "128": "src/icons/round-risk.png" },
     "author": "Pedro Queiroz & Lucca Nunes",
     "default_locale": "en"
 }
