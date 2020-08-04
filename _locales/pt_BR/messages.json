@@ -1,10 +1,10 @@
 {
   "appName": {
     "message": "Risk",
-    "description": "Uma extensão para os Formulários Google criada por dois estudantes, com o objetivo de facilitar o preenchimento desses formulários."
+    "description": "O nome da extensão"
   },
   "appDesc": {
-    "message": "Essa extensão te ajudará a aumentar sua eficiência ao preencher formulários.",
-    "description": "Essa extensão te permite riscar as alternativas de questões do Formulários Google. Ela pode ser muito útil durante provas escolares ou em qualquer atividade que necessite de um ambiente organizado. Além disso, ela numera as questões e te permite ver quais você não respondeu."
+    "message": "Uma extensão para os Formulários Google criada por dois estudantes, com o objetivo de facilitar o preenchimento desses formulários.",
+    "description": "Descrição da extensão."
   }
 }
