@@ -20,13 +20,15 @@ const interval = setInterval(() => {
 /* Function to create the "Riscar" buttons, set their onclick function to risk/unrisk the text and enumerate the questions */
 
 function setup() {
-    const language = submit.innerText.toLowerCase() == 'enviar' ? 'pt' : 'en';
+    const pt_buttons = ['enviar', 'próxima', 'voltar']
+    const language = pt_buttons.includes(submit.innerText.toLowerCase().split('\n')[0]) ? 'pt' : 'en';
 
     const ad = document.createElement('h3');
     const verify = document.createElement('div');
     verify.classList.add('verify');
+    if (document.querySelector(".freebirdThemedFilledButtonM2"))
+        document.querySelector(".freebirdThemedFilledButtonM2").style.backgroundColor = bg_color;
 
-    document.getElementsByClassName("freebirdThemedFilledButtonM2")[0].style.backgroundColor = bg_color;
     submit.style.marginRight = '445px'
 
     let ptAd = 'Extensão Risk criada por Pedro Queiroz & Lucca Nunes';
@@ -86,15 +88,15 @@ function setup() {
     }
 
     for (let i = 0; i < divs.length; i++) {
-        if (i % questionsPerSection == 0) {
-            let index = Math.floor(i / questionsPerSection);
-            let n = document.createElement('div');
-            n.textContent = index + 1;
-            n.classList.add('numeration');
-            n.style.backgroundColor = bg_color;
-            n.style.border = `1px solid ${bg_color}`;
-            sections[index].insertBefore(n, statements[index]);
-        }
+        // if (i % questionsPerSection == 0) {
+        //     let index = Math.floor(i / questionsPerSection);
+        //     let n = document.createElement('div');
+        //     n.textContent = index + 1;
+        //     n.classList.add('numeration');
+        //     n.style.backgroundColor = bg_color;
+        //     n.style.border = `1px solid ${bg_color}`;
+        //     sections[index].insertBefore(n, statements[index]);
+        // }
         let button = document.createElement('div');
         button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
         button.style.backgroundColor = bg_color;
@@ -114,6 +116,14 @@ function setup() {
             }
         }
         divs[i].appendChild(button);
+    }
+    for (let i = 0; i < sections.length; i++) {
+        let n = document.createElement('div');
+        n.textContent = i + 1;
+        n.classList.add('numeration');
+        n.style.backgroundColor = bg_color;
+        n.style.border = `1px solid ${bg_color}`;
+        sections[i].insertBefore(n, statements[i]);
     }
     // * RESPONSIVITY JS EH AKI OH  
     window.onresize = () => {
