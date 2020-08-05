@@ -88,15 +88,6 @@ function setup() {
     }
 
     for (let i = 0; i < divs.length; i++) {
-        // if (i % questionsPerSection == 0) {
-        //     let index = Math.floor(i / questionsPerSection);
-        //     let n = document.createElement('div');
-        //     n.textContent = index + 1;
-        //     n.classList.add('numeration');
-        //     n.style.backgroundColor = bg_color;
-        //     n.style.border = `1px solid ${bg_color}`;
-        //     sections[index].insertBefore(n, statements[index]);
-        // }
         let button = document.createElement('div');
         button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
         button.style.backgroundColor = bg_color;
@@ -148,6 +139,3 @@ function setup() {
         }
     }
 }
-
-
-
