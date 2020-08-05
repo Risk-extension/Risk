@@ -10,6 +10,8 @@ const stripe = document.querySelector(".freebirdSolidBackground");
 const bg_color = getComputedStyle(stripe).backgroundColor;
 const submit = document.querySelector('.freebirdFormviewerViewNavigationButtons');
 const content = document.querySelector('.freebirdFormviewerViewFormContent');
+const pt_buttons = ['enviar', 'próxima', 'voltar']
+const language = pt_buttons.includes(submit.innerText.toLowerCase().split('\n')[0]) ? 'pt' : 'en';
 
 const interval = setInterval(() => {
     if (texts) {
@@ -21,9 +23,6 @@ const interval = setInterval(() => {
 /* Function to create the "Riscar" buttons, set their onclick function to risk/unrisk the text and enumerate the questions */
 
 function setup() {
-    const pt_buttons = ['enviar', 'próxima', 'voltar']
-    const language = pt_buttons.includes(submit.innerText.toLowerCase().split('\n')[0]) ? 'pt' : 'en';
-
     const ad = document.createElement('h3');
     const verify = document.createElement('div');
     verify.classList.add('verify');
@@ -46,54 +45,8 @@ function setup() {
     const buttons = document.getElementsByClassName('button');
     const radios = document.getElementsByClassName('appsMaterialWizToggleRadiogroupEl');
 
-    verify.onclick = () => {
-        let count = 0;
-        let answered = new Array(sections.length);
-        for (let i = 0; i < radios.length; i++) {
-            let sec = radios[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-            if (isMultiChoice(sec)) {
-                if (radios[i].classList.contains('isChecked')) {
-                    count++;
-                    answered[Math.floor(i / questionsPerSection)] = 1;
-                }
-            }
-        }
-        let wrong = false;
-        for (let i = 0; i < radios.length; i++) {
-            let sec = radios[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
-            if (isMultiChoice(sec)) {
-                if (radios[i].classList.contains('isChecked') && (buttons[i].textContent == 'Undo' || buttons[i].textContent == 'Desfazer')) {
-                    wrong = true;
-                    let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`;
-                    let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`;
-                    let error = language == 'pt' ? ptErr : enErr;
-                    alert(error);
-                }
-            }
-        }
-        if (!wrong) {
-            if (count === sections.length) {
-                let ptErr = `Tudo certo!`;
-                let enErr = `All good!`;
-                let error = language == 'pt' ? ptErr : enErr;
-                alert(error);
-            } else {
-                string = '';
-                for (let i = 0; i < sections.length; i++) {
-                    if (isMultiChoice(sections[i]) || isCheckBox(sections[i])) {                    
-                        if (typeof (answered[i]) == 'undefined') {
-                            string += i + 1 + ', ';
-                        }
-                    }
-                }
-                string = string.substring(0, string.length - 2);
-                let ptErr = `As seguintes questões não foram respondidas: ${string}`
-                let enErr = `The following questions haven't been answered: ${string}`
-                let error = language == 'pt' ? ptErr : enErr;
-                alert(error);
-            }
-        }
-    }
+    verify.onclick = verify_f;
+
     for (let i = 0; i < divs.length; i++) {
         let button = document.createElement('div');
         button.textContent = language == 'pt' ? 'Riscar' : 'Risk';

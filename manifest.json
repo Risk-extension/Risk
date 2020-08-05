@@ -5,7 +5,7 @@
     "content_scripts": [
         {
             "matches": ["https://docs.google.com/*"],
-            "js": ["src/JS/app.js", "src/JS/boolFunctions.js"],
+            "js": ["src/JS/app.js", "src/JS/boolFunctions.js", "src/JS/verify.js"],
             "css": ["src/CSS/style.css"]
         }
     ],
