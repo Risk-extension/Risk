@@ -1,4 +1,5 @@
 const divs = document.getElementsByClassName("freebirdFormviewerComponentsQuestionRadioChoice");
+const checkBoxDivs = document.getElementsByClassName('freebirdFormviewerComponentsQuestionCheckboxCheckbox');
 const texts = document.getElementsByClassName("docssharedWizToggleLabeledLabelText");
 const sections = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseRoot');
 const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
@@ -40,7 +41,6 @@ function setup() {
     verify.style.backgroundColor = bg_color;
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
-    // bottomDiv.appendChild(verify);
     bottomDiv.insertBefore(verify, submit);
 
     const buttons = document.getElementsByClassName('button');
@@ -50,19 +50,25 @@ function setup() {
         let count = 0;
         let answered = new Array(sections.length);
         for (let i = 0; i < radios.length; i++) {
-            if (radios[i].classList.contains('isChecked')) {
-                count++;
-                answered[Math.floor(i / questionsPerSection)] = 1;
+            let sec = radios[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+            if (isMultiChoice(sec)) {
+                if (radios[i].classList.contains('isChecked')) {
+                    count++;
+                    answered[Math.floor(i / questionsPerSection)] = 1;
+                }
             }
         }
         let wrong = false;
         for (let i = 0; i < radios.length; i++) {
-            if (radios[i].classList.contains('isChecked') && (buttons[i].textContent == 'Undo' || buttons[i].textContent == 'Desfazer')) {
-                wrong = true;
-                let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`;
-                let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`;
-                let error = language == 'pt' ? ptErr : enErr;
-                alert(error);
+            let sec = radios[i].parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement;
+            if (isMultiChoice(sec)) {
+                if (radios[i].classList.contains('isChecked') && (buttons[i].textContent == 'Undo' || buttons[i].textContent == 'Desfazer')) {
+                    wrong = true;
+                    let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`;
+                    let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`;
+                    let error = language == 'pt' ? ptErr : enErr;
+                    alert(error);
+                }
             }
         }
         if (!wrong) {
@@ -74,8 +80,10 @@ function setup() {
             } else {
                 string = '';
                 for (let i = 0; i < sections.length; i++) {
-                    if (typeof (answered[i]) == 'undefined') {
-                        string += i + 1 + ', ';
+                    if (isMultiChoice(sections[i]) || isCheckBox(sections[i])) {                    
+                        if (typeof (answered[i]) == 'undefined') {
+                            string += i + 1 + ', ';
+                        }
                     }
                 }
                 string = string.substring(0, string.length - 2);
@@ -86,7 +94,6 @@ function setup() {
             }
         }
     }
-
     for (let i = 0; i < divs.length; i++) {
         let button = document.createElement('div');
         button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
@@ -107,6 +114,31 @@ function setup() {
             }
         }
         divs[i].appendChild(button);
+    }
+    for (let i = 0; i < checkBoxDivs.length; i++) {
+        let button = document.createElement('div');
+        button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
+        button.style.backgroundColor = bg_color;
+        button.classList.add('button')
+        let risked = false; // i know it's not a word
+        button.onclick = async () => {
+            if (!risked) {
+                risked = true;
+                checkBoxDivs[i].querySelector('.docssharedWizToggleLabeledLabelWrapper').style.textDecoration = 'line-through';
+                checkBoxDivs[i].querySelector('.docssharedWizToggleLabeledLabelWrapper').style.opacity = '0.5';
+                await new Promise(r => setTimeout(r, 100));
+                checkBoxDivs[i].querySelector('.quantumWizTogglePapercheckboxInnerBox').click();
+                button.textContent = language == 'pt' ? 'Desfazer' : 'Undo';
+            } else {
+                risked = false;
+                checkBoxDivs[i].querySelector('.docssharedWizToggleLabeledLabelWrapper').style.textDecoration = 'initial';
+                checkBoxDivs[i].querySelector('.docssharedWizToggleLabeledLabelWrapper').style.opacity = '1';
+                await new Promise(r => setTimeout(r, 100));
+                checkBoxDivs[i].querySelector('.quantumWizTogglePapercheckboxInnerBox').click();
+                button.textContent = language == 'pt' ? 'Riscar' : 'Risk';
+            }
+        }
+        checkBoxDivs[i].appendChild(button);
     }
     for (let i = 0; i < sections.length; i++) {
         let n = document.createElement('div');
