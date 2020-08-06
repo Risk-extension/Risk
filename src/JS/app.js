@@ -2,15 +2,18 @@ const divs = document.getElementsByClassName("freebirdFormviewerComponentsQuesti
 const checkBoxDivs = document.getElementsByClassName('freebirdFormviewerComponentsQuestionCheckboxCheckbox');
 const texts = document.getElementsByClassName("docssharedWizToggleLabeledLabelText");
 const sections = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseRoot');
-const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
+// const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
+const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtons');
 const footer = document.querySelector('.freebirdFormviewerViewFooterDisclaimer');
 const statements = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseHeader');
+const questionsPerSection = Math.round(divs.length / sections.length);
 const stripe = document.querySelector(".freebirdSolidBackground");
 const bg_color = getComputedStyle(stripe).backgroundColor;
-const submit = document.querySelector('.freebirdFormviewerViewNavigationButtons');
+// const submit = document.querySelector('.freebirdFormviewerViewNavigationButtons');
+const submit = document.querySelector('.freebirdFormviewerViewNavigationSubmitButton');
 const content = document.querySelector('.freebirdFormviewerViewFormContent');
 const pt_buttons = ['enviar', 'próxima', 'voltar']
-const language = pt_buttons.includes(submit.innerText.toLowerCase().split('\n')[0]) ? 'pt' : 'en';
+const language = pt_buttons.includes(bottomDiv.innerText.toLowerCase().split('\n')[0]) ? 'pt' : 'en';
 
 const interval = setInterval(() => {
     if (texts) {
@@ -28,7 +31,12 @@ function setup() {
     if (document.querySelector(".freebirdThemedFilledButtonM2"))
         document.querySelector(".freebirdThemedFilledButtonM2").style.backgroundColor = bg_color;
 
-    submit.style.marginRight = '445px'
+    // submit.style.marginRight = '445px'
+    bottomDiv.style.display = 'flex'
+    bottomDiv.style.justifyContent = 'center'
+    bottomDiv.style.alignItems = 'center'
+    verify.style.marginRight = '15px'
+    verify.style.marginBottom = '0'
 
     let ptAd = 'Extensão Risk criada por Pedro Queiroz & Lucca Nunes';
     let enAd = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
@@ -39,7 +47,11 @@ function setup() {
     verify.style.backgroundColor = bg_color;
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
-    bottomDiv.insertBefore(verify, submit);
+    // bottomDiv.insertBefore(verify, submit);
+    bottomDiv.insertBefore(verify, submit)
+
+    const buttons = document.getElementsByClassName('button');
+    const radios = document.getElementsByClassName('appsMaterialWizToggleRadiogroupEl');
 
     verify.onclick = verify_f;
 
@@ -98,25 +110,25 @@ function setup() {
         sections[i].insertBefore(n, statements[i]);
     }
     // * RESPONSIVITY JS EH AKI OH  
-    window.onresize = () => {
-        if (window.innerWidth <= 503) {
-            submit.style.marginRight = `${260 * window.innerWidth / 503}px`;
-        } else if (window.innerWidth <= 519) {
-            submit.style.marginRight = `${280 * window.innerWidth / 519}px`;
-        } else if (window.innerWidth <= 545) {
-            submit.style.marginRight = `${300 * window.innerWidth / 545}px`;
-        } else if (window.innerWidth <= 564) {
-            submit.style.marginRight = `${320 * window.innerWidth / 564}px`;
-        } else if (window.innerWidth <= 588) {
-            submit.style.marginRight = `${340 * window.innerWidth / 588}px`;
-        } else if (window.innerWidth <= 617) {
-            submit.style.marginRight = `${365 * window.innerWidth / 617}px`;
-        } else if (window.innerWidth <= 660) {
-            submit.style.marginRight = `${400 * window.innerWidth / 660}px`;
-        } else if (window.innerWidth <= 696) {
-            submit.style.marginRight = `${435 * window.innerWidth / 696}px`;
-        } else {
-            submit.style.marginRight = '445px'
-        }
-    }
+    // window.onresize = () => {
+    //     if (window.innerWidth <= 503) {
+    //         submit.style.marginRight = `${260 * window.innerWidth / 503}px`;
+    //     } else if (window.innerWidth <= 519) {
+    //         submit.style.marginRight = `${280 * window.innerWidth / 519}px`;
+    //     } else if (window.innerWidth <= 545) {
+    //         submit.style.marginRight = `${300 * window.innerWidth / 545}px`;
+    //     } else if (window.innerWidth <= 564) {
+    //         submit.style.marginRight = `${320 * window.innerWidth / 564}px`;
+    //     } else if (window.innerWidth <= 588) {
+    //         submit.style.marginRight = `${340 * window.innerWidth / 588}px`;
+    //     } else if (window.innerWidth <= 617) {
+    //         submit.style.marginRight = `${365 * window.innerWidth / 617}px`;
+    //     } else if (window.innerWidth <= 660) {
+    //         submit.style.marginRight = `${400 * window.innerWidth / 660}px`;
+    //     } else if (window.innerWidth <= 696) {
+    //         submit.style.marginRight = `${435 * window.innerWidth / 696}px`;
+    //     } else {
+    //         submit.style.marginRight = '445px'
+    //     }
+    // }
 }
