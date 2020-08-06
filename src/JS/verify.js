@@ -10,8 +10,8 @@ function verify_f() {
                     isAnswered = true;   
                     if (option.querySelector(".button").innerText == 'Undo' || option.querySelector(".button").innerText == 'Desfazer') {
                         wrong = true;
-                        let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas a alternativa escolhida está riscada...`;
-                        let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but the chosen option is risked...`;
+                        let ptErr = `Opa! A questão ${i+1} está respondida mas a alternativa escolhida está riscada...`;
+                        let enErr = `Oops! Question ${i+1} is answered but the chosen option is risked...`;
                         let error = language == 'pt' ? ptErr : enErr;
                         alert(error);
                     }
@@ -27,8 +27,8 @@ function verify_f() {
                     isAnswered = true;
                     if (option.querySelector(".button").innerText == 'Undo' || option.querySelector(".button").innerText == 'Desfazer') {
                         wrong = true;
-                        let ptErr = `Opa! A questão ${Math.floor(i / questionsPerSection) + 1} está respondida mas uma das alternativas escolhidas está riscada...`;
-                        let enErr = `Oops! Question ${Math.floor(i / questionsPerSection) + 1} is answered but one of the chosen options is risked...`;
+                        let ptErr = `Opa! A questão ${i+1} está respondida mas uma das alternativas escolhidas está riscada...`;
+                        let enErr = `Oops! Question ${i+1} is answered but one of the chosen options is risked...`;
                         let error = language == 'pt' ? ptErr : enErr;
                         alert(error);
                     }
