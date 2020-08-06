@@ -5,7 +5,6 @@ const sections = document.getElementsByClassName('freebirdFormviewerComponentsQu
 const bottomDiv = document.querySelector('.freebirdFormviewerViewNavigationButtonsAndProgress');
 const footer = document.querySelector('.freebirdFormviewerViewFooterDisclaimer');
 const statements = document.getElementsByClassName('freebirdFormviewerComponentsQuestionBaseHeader');
-const questionsPerSection = Math.round(divs.length / sections.length);
 const stripe = document.querySelector(".freebirdSolidBackground");
 const bg_color = getComputedStyle(stripe).backgroundColor;
 const submit = document.querySelector('.freebirdFormviewerViewNavigationButtons');
@@ -41,9 +40,6 @@ function setup() {
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
     bottomDiv.insertBefore(verify, submit);
-
-    const buttons = document.getElementsByClassName('button');
-    const radios = document.getElementsByClassName('appsMaterialWizToggleRadiogroupEl');
 
     verify.onclick = verify_f;
 
