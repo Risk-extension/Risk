@@ -27,8 +27,8 @@ function verify_f() {
                     isAnswered = true;
                     if (option.querySelector(".button").innerText == 'Undo' || option.querySelector(".button").innerText == 'Desfazer') {
                         wrong = true;
-                        let ptErr = `Opa! A questão ${i+1} está respondida mas uma das alternativas escolhidas está riscada...`;
-                        let enErr = `Oops! Question ${i+1} is answered but one of the chosen options is risked...`;
+                        let ptErr = `Opa! A questão ${i+1} está respondida mas uma das alternativas escolhidas está riscada... (Isso não afetará o envio do formulário).`;
+                        let enErr = `Oops! Question ${i+1} is answered but one of the chosen options is risked... (It won't affect the form submission).`;
                         let error = language == 'pt' ? ptErr : enErr;
                         alert(error);
                     }
