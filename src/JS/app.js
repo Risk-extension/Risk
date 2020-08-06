@@ -32,6 +32,11 @@ function setup() {
         document.querySelector(".freebirdThemedFilledButtonM2").style.backgroundColor = bg_color;
 
     // submit.style.marginRight = '445px'
+    bottomDiv.style.display = 'flex'
+    bottomDiv.style.justifyContent = 'center'
+    bottomDiv.style.alignItems = 'center'
+    verify.style.marginRight = '15px'
+    verify.style.marginBottom = '0'
 
     let ptAd = 'Extensão Risk criada por Pedro Queiroz & Lucca Nunes';
     let enAd = 'Risk extension created by Pedro Queiroz & Lucca Nunes';
@@ -43,7 +48,7 @@ function setup() {
     verify.classList.add('button');
     verify.style.alignSelf = 'flex-start';
     // bottomDiv.insertBefore(verify, submit);
-    bottomDiv.appendChild(verify);
+    bottomDiv.insertBefore(verify, submit)
 
     const buttons = document.getElementsByClassName('button');
     const radios = document.getElementsByClassName('appsMaterialWizToggleRadiogroupEl');
