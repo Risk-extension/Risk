@@ -17,14 +17,15 @@ const language = pt_buttons.includes(bottomDiv.innerText.toLowerCase().split('\n
 
 const interval = setInterval(() => {
     if (texts) {
-        setup();
         clearInterval(interval);
+        setup();
     }
 }, 1000);
 
 /* Function to create the "Riscar" buttons, set their onclick function to risk/unrisk the text and enumerate the questions */
 
 function setup() {
+    console.log('starting setup');
     const ad = document.createElement('h3');
     const verify = document.createElement('div');
     verify.classList.add('verify');
@@ -107,7 +108,14 @@ function setup() {
         n.classList.add('numeration');
         n.style.backgroundColor = bg_color;
         n.style.border = `1px solid ${bg_color}`;
-        sections[i].insertBefore(n, statements[i]);
+        try {
+            sections[i].insertBefore(n, statements[i]);
+        }
+        catch (e) {
+            console.log(e);
+            // * GAMBIARRA */ 
+            // n.textContent = Number(n.textContent) - 1;
+        }
     }
     // * RESPONSIVITY JS EH AKI OH  
     // window.onresize = () => {
