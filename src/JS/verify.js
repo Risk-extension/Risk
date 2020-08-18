@@ -19,7 +19,10 @@ function verify_f() {
                     }
                 }
             }
-            if (!isAnswered) notAnswered.push(i + diff - 1);
+            if (!isAnswered) {
+                if (diff != 0) notAnswered.push(i + diff - 1);
+                else notAnswered.push(i + 1);
+            }
         } else if (isCheckBox(sections[i])) {
             let isAnswered = false;
             let options = sections[i].getElementsByClassName("freebirdFormviewerComponentsQuestionCheckboxCheckbox");
@@ -35,7 +38,10 @@ function verify_f() {
                     }
                 }
             }
-            if (!isAnswered) notAnswered.push(i + diff - 1);
+            if (!isAnswered) {
+                if (diff != 0) notAnswered.push(i + diff - 1);
+                else notAnswered.push(i + 1);
+            }
         }
     }
     if (!wrong) {
