@@ -1,6 +1,7 @@
 function verify_f() {
     const nums = document.querySelectorAll(".numeration");
     const diff = sections.length - nums.length;
+    const delta = diff == 0 ? 1 : diff - 1;
     let notAnswered = [];
     let wrong = false;
     for (let i = 0; i < sections.length; i++) {
@@ -12,16 +13,15 @@ function verify_f() {
                     isAnswered = true;
                     if (option.querySelector(".button").innerText == "Undo" || option.querySelector(".button").innerText == "Desfazer") {
                         wrong = true;
-                        let ptErr = `Opa! A questão ${i + diff - 1} está respondida mas a alternativa escolhida está riscada... (Isso não afetará o envio do formulário).`;
-                        let enErr = `Oops! Question ${i + diff - 1} is answered but the chosen option is risked... (This won't affect the form submission).`;
+                        let ptErr = `Opa! A questão ${i + delta} está respondida mas a alternativa escolhida está riscada... (Isso não afetará o envio do formulário).`;
+                        let enErr = `Oops! Question ${i + delta} is answered but the chosen option is risked... (This won't affect the form submission).`;
                         let error = language == "pt" ? ptErr : enErr;
                         alert(error);
                     }
                 }
             }
             if (!isAnswered) {
-                if (diff != 0) notAnswered.push(i + diff - 1);
-                else notAnswered.push(i + 1);
+                notAnswered.push(i + delta);
             }
         } else if (isCheckBox(sections[i])) {
             let isAnswered = false;
@@ -31,16 +31,15 @@ function verify_f() {
                     isAnswered = true;
                     if (option.querySelector(".button").innerText == "Undo" || option.querySelector(".button").innerText == "Desfazer") {
                         wrong = true;
-                        let ptErr = `Opa! A questão ${i + diff - 1} está respondida mas uma das alternativas escolhidas está riscada... (Isso não afetará o envio do formulário).`;
-                        let enErr = `Oops! Question ${i + diff - 1} is answered but one of the chosen options is risked... (This won't affect the form submission).`;
+                        let ptErr = `Opa! A questão ${i + delta} está respondida mas uma das alternativas escolhidas está riscada... (Isso não afetará o envio do formulário).`;
+                        let enErr = `Oops! Question ${i + delta} is answered but one of the chosen options is risked... (This won't affect the form submission).`;
                         let error = language == "pt" ? ptErr : enErr;
                         alert(error);
                     }
                 }
             }
             if (!isAnswered) {
-                if (diff != 0) notAnswered.push(i + diff - 1);
-                else notAnswered.push(i + 1);
+                notAnswered.push(i + delta);
             }
         }
     }
