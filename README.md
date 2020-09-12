@@ -12,9 +12,9 @@
 |                                                           |     |
 | --------------------------------------------------------- | --- |
 | Let's you draw a line through the forms options           | ✔   |
-| Enumerates the questions for you                         | ✔   |
+| Enumerates the questions for you                          | ✔   |
 | Check if all questions are answered                       | ✔   |
 
 ## Instalation
 
-Installing Risk could not be easier. Since it's a verified extension, it's available in the official <a href="https://chrome.google.com/webstore/detail/risk/akekmigldbmkkjihbcjkidlbfeihcnod" target="_blank">Chrome Web Store Website</a>!
+Installing Risk could not be easier. Since it's a verified extension, it's available in the official [Chrome Web Store Website](https://chrome.google.com/webstore/detail/risk/akekmigldbmkkjihbcjkidlbfeihcnod "Chrome Web Store")!
