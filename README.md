@@ -21,7 +21,8 @@ Installing Risk could not be easier. Since it's a verified extension, it's avail
 All you have to do is simply click on the "Add to Chrome" button, and that's it! You're ready to go. As soon as you open a Google Forms page, Risk will instantly load all its features.
 
 ## Images and Screenshots
-
-<img src='https://i.imgur.com/CWRZ6Y7.jpg' width='500px' />
-<img src='https://i.imgur.com/XOEhm0f.jpg' width='500px' />
-<img src='https://i.imgur.com/Eb2jPYf.jpg' width='500px' />
+<div align='center'>
+ <img src='https://i.imgur.com/CWRZ6Y7.jpg' width='500px' />
+ <img src='https://i.imgur.com/XOEhm0f.jpg' width='500px' />
+ <img src='https://i.imgur.com/Eb2jPYf.jpg' width='500px' />
+</div>
