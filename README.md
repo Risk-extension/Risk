@@ -12,7 +12,7 @@
 |                                                           |     |
 | --------------------------------------------------------- | --- |
 | Let's you draw a line through the forms options           | ✔   |
-| Enumerates the questions for you.                         | ✔   |
+| Enumerates the questions for you                         | ✔   |
 | Check if all questions are answered                       | ✔   |
 
 ## Instalation
