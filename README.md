@@ -18,7 +18,7 @@
 ## Instalation
 
 Installing Risk could not be easier. <br />
-Since it's a verified extension, it's available in the official [Chrome Web Store Website](https://chrome.google.com/webstore/detail/risk/akekmigldbmkkjihbcjkidlbfeihcnod "Chrome Web Store")!
+Since it's a verified extension, it's available in the official [Chrome Web Store Website](https://chrome.google.com/webstore/detail/risk/akekmigldbmkkjihbcjkidlbfeihcnod "Chrome Web Store")! <br />
 All you have to do is simply click on the "Add to Chrome" button, and that's it! You're ready to go. As soon as you open a Google Forms page, Risk will instantly load all its features.
 
 ## Images and Screenshots
