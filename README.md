@@ -22,5 +22,5 @@ All you have to do is simply click on the "Add to Chrome" button, and that's it!
 
 ## Images and Screenshots
 
-<img src='https://lh3.googleusercontent.com/8jNzgOOOB0ZWbQmTLl06MmTLT1L4nMsRUohniXw303uNeahbkD2Cg8xQUkQJ4adkny1IXkEY=w640-h400-e365-rj-sc0x00ffffff' width='250px'/>
-<img src='https://i.imgur.com/XOEhm0f.jpg'/>
+<img src='https://i.imgur.com/CWRZ6Y7.jpg' width='500px' />
+<img src='https://i.imgur.com/XOEhm0f.jpg' width='500px' />
