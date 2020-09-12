@@ -3,6 +3,14 @@
  <h3>
   A Google Forms extension created by two high schoolers.
  </h3>
-</div
+</div>
+
+> This extension makes everything simpler when dealing with Google Forms. It can be super useful during school tests or anything that requires an organizated environment.
 
 ## Functions and Usage
+
+|                                                           |     |
+| --------------------------------------------------------- | --- |
+| Let's you draw a line through the forms options           | ✔   |
+| Enumerates the questions for you.                         | ✔   |
+| Check if all questions are answered                       | ✔   |
