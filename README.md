@@ -14,3 +14,7 @@
 | Let's you draw a line through the forms options           | ✔   |
 | Enumerates the questions for you.                         | ✔   |
 | Check if all questions are answered                       | ✔   |
+
+## Instalation
+
+Installing Risk could not be easier. Since it's a verified extension, it's available in the official [Chrome Web Store Website!](https://chrome.google.com/webstore/detail/risk/akekmigldbmkkjihbcjkidlbfeihcnod)
