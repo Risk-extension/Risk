@@ -22,7 +22,7 @@ All you have to do is simply click on the "Add to Chrome" button, and that's it!
 
 ## Images and Screenshots
 <div align='center'>
- <img src='https://i.imgur.com/CWRZ6Y7.jpg' width='500px' />
- <img src='https://i.imgur.com/XOEhm0f.jpg' width='500px' />
- <img src='https://i.imgur.com/Eb2jPYf.jpg' width='500px' />
+ <img src='https://i.imgur.com/CWRZ6Y7.jpg' width='500px' /> <br />
+ <img src='https://i.imgur.com/XOEhm0f.jpg' width='500px' /> <br />
+ <img src='https://i.imgur.com/Eb2jPYf.jpg' width='500px' /> <br />
 </div>
