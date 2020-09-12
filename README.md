@@ -5,4 +5,4 @@
  </h3>
 </div
 
-> This extension will allow you to draw lines through Google Forms options. It can be super useful during school tests or anything that requires an organizated environment.
+## Functions and Usage
